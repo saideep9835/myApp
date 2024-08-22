@@ -2,60 +2,69 @@
 
 import Foundation
 
-//creating a variable
+func removeDuplicates(_ arr1: [Int], _ arr2: [Int]) -> [Int]{
+    var c = arr1+arr2
+    var d:[Int] = []
 
-var a: Int = 2
-var a1 = 2
-var s: String = "Hello"
-var s1 = "World"
-var d: Double = 2.0
+    for i in c{
+        var duplicate = false
+        for j in d{
+            if j == i{
+                duplicate = true
+                break
+            }
+        }
+        if duplicate == false{
+            d.append(i)
+        }
 
-//creating a list
-
-var a3:[Int] = [3,5,4,7,8]
-
-// creating a dictonary
-
-var a4:[String:Int] = ["a":2,"b":3]
-// creating a set
-
-var a5:Set<Int> = [2,3,4,5,6,7]
-
-//creating a constant
-//use let instead of var
-
-let a6:Int = 10  //Cannot change the value
- 
-// counting array
-
-var a7: [Int] = [2,4,5,8,5]
-var count = 0
-for i in a7{
-    count += i
+    }
+    return d
 }
-print(count)
+var arr1:[Int] = [1,2,2,3,4]
+var arr2:[Int] = [5,6,6,7,8]
+//print(removeDup(arr1, arr2))
 
-// Printing array numbers with index numbers
 
-var arr: [Int] = [4,3,6,7,8,5,3,6]
-for i in 0..<arr.count{
-    print("\(i):\(arr[i])")
+func removeDuplicate(_ num1: [Int], _ num2: [Int]) -> [Int]{
+    var c = num1+num2
+    var d:[Int] = []
+    for i in 0..<c.count{
+        if i == 0 || c[i] != c[i-1]{
+            d.append(c[i])
+        }
+
+    }
+    return d
 }
+var num1:[Int] = [1,2,2,3,4]
+var num2:[Int] = [5,6,6,7,8]
+//print(removeDup(num1, num2))
 
-// Sorting array of numbers
-var sorted_arr:[Int] = [4,3,6,7,4,5,4]
-for i in 0..<sorted_arr.count{
-    for j in 0..<sorted_arr.count-i-1{
-        if sorted_arr[j]>sorted_arr[j+1]{
-            let temp = sorted_arr[j]
-            sorted_arr[j] = sorted_arr[j+1]
-            sorted_arr[j+1] = temp
+func fST(_ a: [Int]) -> (Int, Int, Int) {
+
+    var first = a[0]
+    var second = a[1]
+    var third = a[2]
+
+    for i in 3..<a.count {
+        if a[i] > first {
+            third = second
+            second = first
+            first = a[i]
+        } else if a[i] > second {
+            third = second
+            second = a[i]
+        } else if a[i] > third {
+            third = a[i]
         }
     }
+
+    return (first, second, third)
 }
-print(sorted_arr)
 
-
+var arr = [23, 56, 7, 77, 84, 92, 36, 12, 34, 43]
+//print(fST(arr))
 
 
 
