@@ -36,9 +36,9 @@ import Foundation
 //print(count)
 //
 
-let a: Double = 3.4
-let b: Double = 5.6
-print(a+b)
+//let a: Double = 3.4
+//let b: Double = 5.6
+//print(a+b)
 
 
 
