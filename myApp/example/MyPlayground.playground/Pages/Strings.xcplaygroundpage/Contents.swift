@@ -8,7 +8,7 @@ import Foundation
 func charOccurrence(_ stringInput: String) -> [Character:Int]{
     var charDict:[Character:Int] = [:]
     for i in stringInput{
-        if let count = charDict[i]{   //we cannot directly check the dictonary to instead we need to unwrap it and check                                  //the condition
+        if let count = charDict[i]{   //we cannot directly check the dictonary instead we need to unwrap it and check                                  //the condition
             charDict[i] = count + 1
         }else{
             charDict[i] = 1
@@ -94,3 +94,22 @@ func addDuplicate(_ strin: String) -> String{
 }
 var strin = "Helllo"
 print(addDuplicate(strin))
+
+
+//Is palindrome or not
+
+func isPalindrome(_ st: String) -> Bool{
+    let char = Array(st.lowercased())
+    var intialString = 0
+    var finalString = char.count-1
+    while intialString < finalString{
+        if char[intialString] != char[finalString]{
+            return false
+        }
+        intialString += 1
+        finalString -= 1
+    }
+    return true
+}
+var st = "saideep"
+print(isPalindrome(st))

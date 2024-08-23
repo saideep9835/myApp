@@ -130,24 +130,67 @@ import Foundation
 
 //Finding out the common characters
 
-func commonChar(_ a: [String]) -> String{
-    
-    let start = a[0]
-    
-    for i in 1..<a.count{
-        var empty = [Character]()
-        var
-        for c in start{
-            if a[i] == c{
-                empty += c
+func commonCharacters(in strings: [String]) -> String {
+    if strings.isEmpty {
+        return ""
+    }
+    let firstString = strings[0]
+    var result = ""
+    for char in firstString {
+        var isCommon = true
+        for str in strings {
+            if !str.contains(char) {
+                isCommon = false
+                break
             }
         }
-        
+        if isCommon && !result.contains(char) {
+            result.append(char)
+        }
     }
-    return empty
+    
+    return result
 }
 
-var a = ["cool","lock","cook"]
-print(commonChar(a))
+var a = ["cool", "lock", "cook"]
+//print(commonCharacters(in: a))
+
+//Finding out the common characters without using built-in functions.
+func commonChar(_ string: [String]) -> String{
+    var common: String = ""
+    let first: String = string[0]
+    for i in first{
+        var isCommon = true
+        for strs in string{
+            var found = false
+            for char in strs{
+                if i == char{
+                    
+                    found = true
+                    break
+                }
+            }
+            if !found{
+                isCommon = false
+                break
+            }
+            
+            
+        }
+        var isExisting = false
+        for existing in common{
+            if existing == i{
+                isExisting = true
+                break
+            }
+        }
+        if isCommon && !isExisting{
+            common.append(i)
+        }
+    }
+    return common
+}
+var strings = ["cool", "lock", "cook"]
+print(commonChar(strings))
 
 
