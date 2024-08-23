@@ -191,6 +191,27 @@ func commonChar(_ string: [String]) -> String{
     return common
 }
 var strings = ["cool", "lock", "cook"]
-print(commonChar(strings))
+//print(commonChar(strings))
 
 
+// Find reverse of number using Stack
+
+func stack(_ num: Int) -> Int{
+    var a:[Character] = []
+    var b:String = ""
+    for i in String(num){
+        a.append(i)
+    }
+    for i in a{
+        if let c = a.popLast() {
+            b.append(c)
+        }
+        
+    }
+    if let b = Int(b){
+        return b
+    }
+   return 1
+}
+var num = 2134
+print(stack(num))
