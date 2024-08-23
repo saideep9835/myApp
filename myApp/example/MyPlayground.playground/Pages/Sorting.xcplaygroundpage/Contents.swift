@@ -203,15 +203,16 @@ func stack(_ num: Int) -> Int{
         a.append(i)
     }
     for i in a{
-        if let c = a.popLast() {
+        if let c = a.popLast() {    //unwrapping to store all the popped elements into c.
             b.append(c)
         }
         
     }
-    guard let b = Int(b) else{
+    guard let b = Int(b) else{   //unwrapping to change character into Int.
         return 1
     }
    return b
 }
 var num = 2134789
 print(stack(num))
+
