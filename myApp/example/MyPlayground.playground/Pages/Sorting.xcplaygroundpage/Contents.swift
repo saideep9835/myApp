@@ -208,10 +208,10 @@ func stack(_ num: Int) -> Int{
         }
         
     }
-    if let b = Int(b){
-        return b
+    guard let b = Int(b) else{
+        return 1
     }
-   return 1
+   return b
 }
-var num = 2134
+var num = 2134789
 print(stack(num))
