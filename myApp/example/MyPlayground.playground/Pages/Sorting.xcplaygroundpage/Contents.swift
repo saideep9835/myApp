@@ -104,24 +104,19 @@ import Foundation
 //print(removeDup(a, b))
 
 //func fST(_ a: [Int]) -> (Int, Int, Int) {
-//    
+//
 //    var first = a[0]
 //    var second = a[1]
 //    var third = a[2]
-//    
+//
 //    for i in 3..<a.count {
 //        if a[i] > first {
 //            third = second
 //            second = first
 //            first = a[i]
-//        } else if a[i] > second {
-//            third = second
-//            second = a[i]
-//        } else if a[i] > third {
-//            third = a[i]
 //        }
 //    }
-//    
+//
 //    return (first, second, third)
 //}
 //
@@ -196,23 +191,72 @@ var strings = ["cool", "lock", "cook"]
 
 // Find reverse of number using Stack
 
-func stack(_ num: Int) -> Int{
-    var a:[Character] = []
-    var b:String = ""
-    for i in String(num){
-        a.append(i)
-    }
-    for i in a{
-        if let c = a.popLast() {    //unwrapping to store all the popped elements into c.
-            b.append(c)
-        }
-        
-    }
-    guard let b = Int(b) else{   //unwrapping to change character into Int.
-        return 1
-    }
-   return b
+//func stack(_ num: Int) -> Int{
+//    var a:[Character] = []
+//    var b:String = ""
+//    for i in String(num){
+//        a.append(i)
+//    }
+//    for i in a{
+//        if let c = a.popLast() {    //unwrapping to store all the popped elements into c.
+//            b.append(c)
+//        }
+//        
+//    }
+//    guard let b = Int(b) else{   //unwrapping to change character into Int.
+//        return 1
+//    }
+//   return b
+//}
+//var num = 2134789
+//print(stack(num))
+
+// reversing an array
+var num1:[Int] = [1,2,3,4,5,6,7]
+var start = 0
+var end = num1.count-1
+while start < end{
+    
+        let temp = num1[start]
+        num1[start] = num1[end]
+        num1[end] = temp
+    
+    start += 1
+    end -= 1
+
 }
-var num = 2134789
-print(stack(num))
+//print(num1)
+
+//
+
+//Remove the duplicate from this array and sort it in ascending order
+
+func removeDuplicateWithSorted(_ arr:[Int]) -> [Int]{
+    var arrWithoutDup: [Int] = []
+    var arr = sortArray(arr)
+    for i in 0..<arr.count{
+        if i == 0 || arr[i] != arr[i-1]{
+            arrWithoutDup.append(arr[i])
+        }
+    }
+    return arrWithoutDup
+}
+
+func sortArray(_ ar: [Int]) -> [Int]{
+    var ar = ar
+    for i in 0..<ar.count{
+        for j in 0..<ar.count-i-1{
+            if ar[j] > ar[j+1]{
+                var temp = ar[j]
+                ar[j] = ar[j+1]
+                ar[j+1] = temp
+            }
+        }
+    }
+    return ar
+}
+var ar = [2,4,5,6,7,12,14,16,17,34,45,67,98,65,34,23,45,16]
+print(removeDuplicateWithSorted(ar))
+
+
 

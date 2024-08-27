@@ -4,5 +4,8 @@
         <page name='Sorting'/>
         <page name='Practise'/>
         <page name='Strings'/>
+        <page name='Arrays'/>
+        <page name='Sample'/>
+        <page name='Classes'/>
     </pages>
 </playground>

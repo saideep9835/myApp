@@ -112,4 +112,34 @@ func isPalindrome(_ st: String) -> Bool{
     return true
 }
 var st = "saideep"
-print(isPalindrome(st))
+//print(isPalindrome(st))
+
+//Remove characters from the first string which are present in the second string
+
+
+func removeChar(_ str1: String, _ str2: String) -> String {
+    var str:String = ""
+    var str1 = Array(str1)
+    var str2 = Array(str2)
+    if str1.count > str2.count{
+        for i in 0..<str1.count{
+            var found = false
+            for j in str2{
+                if j == str1[i]{
+                    found = true
+                    break
+                }
+            }
+            if !found{
+                str.append(str1[i])
+            }
+        }
+    }else{
+        return "string 1 is less than string 2"
+    }
+    return str
+}
+var str1 = "occurrence"
+var str2 = "car"
+print(removeChar(str1,str2))
+

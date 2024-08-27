@@ -344,3 +344,139 @@ import Foundation
 //}
 
 
+func arrOfInt(_ arr:[String]) -> [Int]{
+    var even:[Int] = []
+    for i in arr{
+        if let a = Int(i){
+            if a%2 == 0{
+                even.append(a)
+            }
+        }
+    }
+    return even
+}
+var arr = ["1", "2", "3", "4", "5"]
+print(arrOfInt(arr))
+
+//Json data
+//"id": "0001",
+//"type": "donut",
+//"name": "Cake",
+//"ppu": 0.55,
+//"batters": {
+//    "batter": [
+//        {
+//            "id": "1001",
+//            "type": "Regular"
+//        },
+//        {
+//            "id": "1002",
+//            "type": "Chocolate"
+//        },
+//        {
+//            "id": "1003",
+//            "type": "Blueberry"
+//        },
+//        {
+//            "id": "1004",
+//            "type": "Devil's Food"
+//        }
+//    ]
+//},
+//"topping": [
+//    {
+//        "id": "5001",
+//        "type": "None"
+//    },
+//    {
+//        "id": "5002",
+//        "type": "Glazed"
+//    },
+//    {
+//        "id": "5005",
+//        "type": "Sugar"
+//    },
+//    {
+//        "id": "5007",
+//        "type": "Powdered Sugar"
+//    },
+//    {
+//        "id": "5006",
+//        "type": "Chocolate with Sprinkles"
+//    },
+//    {
+//        "id": "5003",
+//        "type": "Chocolate"
+//    },
+//    {
+//        "id": "5004",
+//        "type": "Maple"
+//    }
+//]
+//}
+
+//Created a structure using the above Json
+//struct Batter: Codable{
+//    let id: String?
+//    let type: String?
+//}
+//struct Batters: Codable{
+//    let batter: [Batter]?
+//}
+//struct Topping: Codable{
+//    let id: String?
+//    let type: String?
+//}
+//struct Grocery: Codable{
+//    let id: String?
+//    let type: String?
+//    let name: String?
+//    let ppu: Int?
+//    let batters: Batters?
+//    let topping: [Topping]?
+//}
+
+var name: String?
+
+if let unwrappedName = name {
+    print("User name is \(unwrappedName)")
+} else {
+    print("User name is nil")
+}
+
+var optionalCounter: Int? = 3
+
+// Loop until optionalCounter becomes nil
+while optionalCounter != nil {
+    print("Counter: \(optionalCounter!)")  // Output: Counter: 3, Counter: 2, Counter: 1
+    optionalCounter! -= 1
+    
+    // Set to nil if it reaches 0
+    if optionalCounter == 0 {
+        optionalCounter = nil
+    }
+}
+
+print("Loop exited as optionalCounter is now nil.")
+
+let optionalArray: [Int]? = [1, 2, 3, 4, 5]
+
+// Use optional binding to unwrap the optional before iterating
+if let array = optionalArray {
+    for number in array {
+        print(number)  // Output: 1 2 3 4 5
+    }
+} else {
+    print("The array is nil.")
+}
+
+var optionalNumber: Int? = 5
+
+// Continue the loop while optionalNumber is not nil
+while let number = optionalNumber {
+    print(number)  // Output: 5
+    // Set optionalNumber to nil to end the loop
+    optionalNumber = nil
+}
+
+print("Loop ended because optionalNumber is now nil.")
