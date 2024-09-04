@@ -141,5 +141,6 @@ func removeChar(_ str1: String, _ str2: String) -> String {
 }
 var str1 = "occurrence"
 var str2 = "car"
-print(removeChar(str1,str2))
+//print(removeChar(str1,str2))
+
 

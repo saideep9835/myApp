@@ -344,6 +344,7 @@ import Foundation
 //}
 
 
+
 func arrOfInt(_ arr:[String]) -> [Int]{
     var even:[Int] = []
     for i in arr{
